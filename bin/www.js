@@ -1,5 +1,5 @@
 const winston = require("winston");
-const http = require("http");
+// const http = require("http");
 const config = require("../config/config");
 
 const Log = winston.createLogger({
@@ -41,7 +41,7 @@ app.set("port", port);
 //   res.write("Hello World!");
 //   res.end();
 // });
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
 function onError(error) {
   if (error.syscall !== "listen") {
@@ -64,11 +64,11 @@ function onError(error) {
 }
 
 function onListening() {
-  const addr = server.address();
-  Log.info(`Listening on ${addr.address}:${addr.port}`);
+  // Log.info(`Listening on ${}:${addr.port}`)
+  Log.info("Listening Server");
 }
 
-server.listen(port, config.main.listenOn);
+app.listen(port, onListening);
 
-server.on("error", onError);
-server.on("listening", onListening);
+// server.on("error", onError);
+// server.on("listening", onListening);
