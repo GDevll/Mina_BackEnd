@@ -5,14 +5,9 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-// app.get("/", (req, res) => {
-//     console.log("coucou");
-//     res.status(200).send("index"); // TODO: MUST ME FIXED
-//     //res.render ("index", { title: "Express" }); NOT WORKING
-//   });
 
-var indexRouter = require("./routes/index");
-// const usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
 
 // app.use(helmet());
@@ -20,20 +15,12 @@ var indexRouter = require("./routes/index");
 // app.use(express.static(path.join(__dirname, 'index.html')));
 
 app.use("/", indexRouter);
-// app.use("/users", usersRouter);
+app.use("/users", usersRouter);
 
 // Handle 404
 app.use((res) => res.sendStatus(404));
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
-
-// app.get("/", (res) => {
-//   console.log("Hi");
-//   res.sendFile(__dirname.concat("/index.html"));
-// })
 
 app.use(bodyParser.json);
 app.use(bodyParser.urlencoded({ extended: true }));

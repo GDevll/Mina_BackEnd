@@ -66,7 +66,6 @@ function onError(error) {
 function onListening() {
   const addr = server.address()
   Log.info(`Listening on ${addr.addr}:${addr.port}`)
-  // Log.info("Listening Server");
 }
 
 server.listen(port, config.main.listenOn);
