@@ -28,4 +28,4 @@ app.use((res) => res.sendStatus(404));
 //   console.log("Hi");
 //   res.sendFile(__dirname.concat("/index.html"));
 // })
-export default app;
+module.exports = app;
